@@ -1,4 +1,4 @@
-package com.interagile.cliente.template.service;
+package com.interagile.cliente.escola.service;
 
 import org.springframework.stereotype.Service;
 

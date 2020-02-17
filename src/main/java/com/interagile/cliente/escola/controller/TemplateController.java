@@ -1,4 +1,4 @@
-package com.interagile.cliente.template.controller;
+package com.interagile.cliente.escola.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.interagile.cliente.template.response.Response;
-import com.interagile.cliente.template.response.Response.ResponseBuilder;
+import com.interagile.cliente.template.escola.Response;
+import com.interagile.cliente.template.escola.Response.ResponseBuilder;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/suaController")
@@ -27,11 +26,11 @@ public class TemplateController {
 	@GetMapping("/suaRota/{path}")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Sucesso na requisição"),
 			@ApiResponse(code = 400, message = "Erro na requisição") })
-	public Mono<ResponseEntity<Response<Object>>> consultaTemplate(@PathVariable String path) {
+	public ResponseEntity<Response<Object>> consultaTemplate(@PathVariable String path) {
 		LOG.debug("Iniciando a controller");
 		ResponseBuilder<Object> responseBuilder = Response.builder();
 		responseBuilder.data(path);
 		responseBuilder.status(HttpStatus.OK.value());
-		return Mono.just(ResponseEntity.status(HttpStatus.OK).body(responseBuilder.build()));
+		return ResponseEntity.status(HttpStatus.OK).body(responseBuilder.build());
 	}
 }

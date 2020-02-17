@@ -1,4 +1,4 @@
-package com.interagile.cliente.template.response;
+package com.interagile.cliente.template.escola;
 
 import java.util.List;
 
